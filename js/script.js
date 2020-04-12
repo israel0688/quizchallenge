@@ -13,7 +13,7 @@
         (currentQuestion, questionNumber) => 
         {
   
-          // soring answers
+          // sorting answers
           const answers = [];
   
        
@@ -52,7 +52,8 @@
   
       // keep track of user's answers
       let numCorrect = 0;
-  
+    
+   
     
       myQuestions.forEach( (currentQuestion, questionNumber) =>
       {
@@ -67,6 +68,7 @@
         {
           // add to the number of correct answers
           numCorrect++;
+          
   
           // color answer green
           answerContainers[questionNumber].style.color = 'lightgreen';
@@ -81,9 +83,32 @@
   
       // show number of correct answers out of total
       resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
-      if (numCorrect===myQuestions.length)
-      alert('Great Job! You got them all correct!');
+     
+      var highScore = (numCorrect*100);  
+      localStorage.setItem("highScore", highScore);
+     
+      alert(`Your score is:${highScore}`);
+    
+   /*   if (numCorrect===myQuestions.length)
+      alert('Great Job! You got them all correct!');*/
+
     }
+
+
+    function renderLastScore() 
+    {
+      var highScore = localStorage.getItem("highScore");
+
+    
+      if (highScore === null) {
+        return;
+      }
+    
+      alert(`Previous score is:${highScore}`);
+    }
+
+    renderLastScore();
+
   
     function showSlide(n) 
     {
@@ -110,6 +135,7 @@
     }
   
     function showNextSlide() 
+
     {
       showSlide(currentSlide + 1);
     }
@@ -119,7 +145,7 @@
       showSlide(currentSlide - 1);
     }
   
-    
+    const nameInput = document.getElementById('#name');
     const quizContainer = document.getElementById('quiz');
     const resultsContainer = document.getElementById('results');
     const submitButton = document.getElementById('submit');
@@ -174,6 +200,7 @@
         correctAnswer: "d"
       }
     ];
+
   
     
     buildQuiz();
@@ -190,5 +217,8 @@
     // Event listeners
     submitButton.addEventListener('click', showResults);
     backButton.addEventListener("click", showPreviousSlide);
-    progressButton.addEventListener("click", showNextSlide);
+    progressButton.addEventListener("click", showNextSlide,);
+
+
+
   })();
