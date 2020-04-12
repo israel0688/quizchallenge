@@ -81,6 +81,8 @@
   
       // show number of correct answers out of total
       resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+      if (numCorrect===myQuestions.length)
+      alert('Great Job! You got them all correct!');
     }
   
     function showSlide(n) 
