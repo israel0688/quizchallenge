@@ -43,6 +43,8 @@
       
       quizContainer.innerHTML = output.join('');
     }
+
+
   
     function showResults()
     {
@@ -57,7 +59,8 @@
     
       myQuestions.forEach( (currentQuestion, questionNumber) =>
       {
-  
+       
+      
        
         const answerContainer = answerContainers[questionNumber];
         const selector = `input[name=question${questionNumber}]:checked`;
@@ -93,6 +96,33 @@
       alert('Great Job! You got them all correct!');*/
 
     }
+
+    var timerEl = document.getElementById("time001");
+    
+    var count = 0;
+    
+    
+    function prepareRead() {
+      var timeLeft = 15;
+    
+      var timeInterval = setInterval(function () 
+      {
+        timerEl.textContent = timeLeft + " seconds remaining";
+        timeLeft--;
+    
+        if (timeLeft === 0)
+         {
+          timerEl.textContent = "";
+          showResults();
+          clearInterval(timeInterval);
+        }
+    
+      }, 1000);
+    };
+
+    prepareRead();
+
+  
 
 
     function renderLastScore() 
@@ -145,7 +175,6 @@
       showSlide(currentSlide - 1);
     }
   
-    const nameInput = document.getElementById('#name');
     const quizContainer = document.getElementById('quiz');
     const resultsContainer = document.getElementById('results');
     const submitButton = document.getElementById('submit');
@@ -205,7 +234,6 @@
     
     buildQuiz();
   
-    
     const backButton = document.getElementById("back");
     const progressButton = document.getElementById("forward");
     const slides = document.querySelectorAll(".slide");
