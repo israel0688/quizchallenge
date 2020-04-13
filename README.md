@@ -6,6 +6,6 @@
 
 ### https://israel0688.github.io/quizchallenge/index.html
 
-![alt "screenshot"](https://github.com/israel0688/quizchallenge/blob/master/quizPic.png)
+![alt "screenshot"](https://github.com/israel0688/quizchallenge/blob/master/images/quizPic.png)
 
 #### RESOURCE: https://www.sitepoint.com/simple-javascript-quiz/
